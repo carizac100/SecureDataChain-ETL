@@ -18,37 +18,16 @@ This document describes the technical architecture of the **SecureDataChain ETL 
 
 ## 3. Data Flow Diagram
 
- +-------------------+
- |  Data Source(s)   |
- +---------+---------+
-           |
-           v
- +-------------------+
- |   ETL Pipeline    |
- | (Extract/Transform|
- |       /Load)      |
- +---------+---------+
-           |
-           v
- +-------------------+
- |  Hash Generator   |
- | (SHA-256 Digest)  |
- +---------+---------+
-           |
-           v
- +-------------------+
- |  Blockchain Layer |
- | (Record + Verify) |
- +---------+---------+
-           |
-           v
- +-------------------+
- |   Data Integrity  |
- |    Verification   |
- +-------------------+
+```mermaid
+flowchart TD
+    A[🗂️ Data Source(s)] --> B[⚙️ ETL Pipeline<br/>(Extract / Transform / Load)]
+    B --> C[🔑 Hash Generator<br/>(SHA-256 Digest)]
+    C --> D[⛓️ Blockchain Layer<br/>(Record + Verify)]
+    D --> E[🔍 Data Integrity<br/>Verification]
 
 
----
+
+
 
 ## 4. Architecture Layers
 
